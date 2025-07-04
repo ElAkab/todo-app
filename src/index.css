@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+	--color-fraise: #962a5b;
+	--color-citron: #fff700;
+	--shadow-3xl: 0 35px 85px rgba(0, 0, 0, 0.55);
+}
+
+@layer utilities {
+	.cifraise {
+		background: linear-gradient(
+			45deg,
+			rgba(150, 42, 91, 1) 35%,
+			rgba(255, 247, 0, 1) 100%
+		);
+	}
+
+	.half-rounded-left {
+		border-radius: 24px 0 0 24px;
+	}
+
+	.half-rounded-right {
+		border-radius: 0 24px 24px 0;
+	}
+
+	.todo-item {
+		@apply flex justify-between items-center;
+	}
+
+	.responsive-text {
+		font-size: clamp(0.75rem, 1.25vw, 1.25rem);
+	}
+}
