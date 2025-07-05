@@ -23,7 +23,7 @@ function TodoItem({ text, isChecked, toggleCheck, onDelete }) {
 			)}
 			<span
 				className={`text-xl max-w-[calc(100%-80px)] break-words ${
-					isChecked ? "line-through text-gray-500" : ""
+					isChecked ? "line-through text-gray-400 italic" : ""
 				}`}
 			>
 				{text}
