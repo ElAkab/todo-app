@@ -70,6 +70,35 @@ function App() {
 		}
 	};
 
+	const placeholderExamples = [
+		"ex : Boycotter israel",
+		"ex : Acheter des brocolis",
+		"ex : Faire quelque chose",
+		"ex : Faire une Lasagne",
+		"ex : Faire 50 pompe avant de dormir",
+		"ex : Faire des courses raisonnable",
+		"ex : Porter plainte sans raison",
+		"ex : Laver sa tesla",
+		"ex : Bruler un feu vert",
+	];
+
+	const [placeholder, setPlaceholder] = useState("");
+
+	useEffect(() => {
+		const getRandomPlaceholder = (exclude) => {
+			let newPlaceholder;
+			do {
+				newPlaceholder =
+					placeholderExamples[
+						Math.floor(Math.random() * placeholderExamples.length)
+					];
+			} while (newPlaceholder === exclude);
+			return newPlaceholder;
+		};
+
+		setPlaceholder(getRandomPlaceholder(""));
+	}, []);
+
 	return (
 		<div className="h-screen flex justify-center items-center p-2">
 			<div className="w-full max-w-md bg-white border-2 rounded-2xl p-6 md:p-9 shadow-3xl">
@@ -83,7 +112,7 @@ function App() {
 								addTask(); // Appelle la fonction d'ajout de tâche
 							}
 						}}
-						placeholder="ex : Nourrir Adam un aujourd'hui."
+						placeholder={placeholder}
 						className="border-2 half-rounded-left w-5/6 p-2 pl-4"
 						type="text"
 					/>
